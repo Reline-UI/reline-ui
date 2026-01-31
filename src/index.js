@@ -1,5 +1,18 @@
-import './index.css'
+import "./index.css";
 
 // Export library components from here
-export { default as Button } from './components/Buttons/Button/index.jsx'
-export {default as GlassButton} from './components/Buttons/GlassButton/index.jsx'
+export { default as Button } from "./components/Buttons/Button/index.jsx";
+export { default as GlassButton } from "./components/Buttons/GlassButton/index.jsx";
+export {
+  default as Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "./components/Accordion/index.jsx";
+
+export {
+  default as GlassAccordion,
+  GlassAccordionItem,
+  GlassAccordionTrigger,
+  GlassAccordionContent,
+} from "./components/GlassAccordion/index.jsx";
