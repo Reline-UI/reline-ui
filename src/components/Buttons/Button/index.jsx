@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-export default function Button({ variant = 'primary',children, onClick, className = '' }) {
+export default function Button({ variant = 'primary',children = 'Button', onClick, className = '' }) {
   
   // Create your base style
   const baseStyle = 'px-4 py-2 rounded-lg font-medium transition-colors duration-200 ease-in '
