@@ -3,6 +3,15 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
   Button,
   GlassAccordion,
   GlassAccordionContent,
@@ -13,7 +22,7 @@ import {
 
 export default function App() {
   return (
-    <div className="p-8 dark:bg-zinc-950 min-h-screen dark:text-white ">
+    <div className="p-8 dark:bg-zinc-950 min-h-screen w-full dark:text-white ">
       <h1 className="text-2xl font-bold mb-4">Reline UI — Example</h1>
       <div className="flex flex-col gap-8 items-start">
         <div className="flex flex-col gap-4">
@@ -81,6 +90,32 @@ export default function App() {
             </GlassAccordionItem>
           </GlassAccordion>
         </div>
+
+        {/* Alert Dialog */}
+        <AlertDialog>
+         <AlertDialogTrigger>
+          <Button>Show Dialog</Button>
+         </AlertDialogTrigger>
+
+         <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>
+              Wanna See the the dialog?
+            </AlertDialogTitle>
+            <AlertDialogDescription>
+              well, here it is. Enjoy your dialog
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>
+              Cancel
+            </AlertDialogCancel>
+            <AlertDialogAction onClick={() => alert('Deleted')}>
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+         </AlertDialogContent>
+        </AlertDialog>
       </div>
     </div>
   );

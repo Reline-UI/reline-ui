@@ -16,3 +16,15 @@ export {
   GlassAccordionTrigger,
   GlassAccordionContent,
 } from "./components/GlassAccordion/index.jsx";
+
+export {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogCancel,
+  AlertDialogAction,
+} from "./components/AlertDialogue/index.jsx";
