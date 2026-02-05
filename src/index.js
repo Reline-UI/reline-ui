@@ -28,3 +28,6 @@ export {
   AlertDialogCancel,
   AlertDialogAction,
 } from "./components/AlertDialogue/index.jsx";
+
+
+export { Callout } from "./components/Callout/index.jsx"

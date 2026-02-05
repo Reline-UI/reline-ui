@@ -13,6 +13,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
   Button,
+  Callout,
   GlassAccordion,
   GlassAccordionContent,
   GlassAccordionItem,
@@ -93,29 +94,37 @@ export default function App() {
 
         {/* Alert Dialog */}
         <AlertDialog>
-         <AlertDialogTrigger>
-          <Button>Show Dialog</Button>
-         </AlertDialogTrigger>
+          <AlertDialogTrigger>
+            <Button>Show Dialog</Button>
+          </AlertDialogTrigger>
 
-         <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>
-              Wanna See the the dialog?
-            </AlertDialogTitle>
-            <AlertDialogDescription>
-              well, here it is. Enjoy your dialog
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>
-              Cancel
-            </AlertDialogCancel>
-            <AlertDialogAction onClick={() => alert('Deleted')}>
-              Delete
-            </AlertDialogAction>
-          </AlertDialogFooter>
-         </AlertDialogContent>
+          <AlertDialogContent>
+            <AlertDialogHeader>
+              <AlertDialogTitle>Wanna See the the dialog?</AlertDialogTitle>
+              <AlertDialogDescription>
+                well, here it is. Enjoy your dialog
+              </AlertDialogDescription>
+            </AlertDialogHeader>
+            <AlertDialogFooter>
+              <AlertDialogCancel>Cancel</AlertDialogCancel>
+              <AlertDialogAction onClick={() => alert("Deleted")}>
+                Delete
+              </AlertDialogAction>
+            </AlertDialogFooter>
+          </AlertDialogContent>
         </AlertDialog>
+
+        {/* Call out */}
+        <div>
+          <Callout.Root>
+            <Callout.Icon>{/* Add icon here */}</Callout.Icon>
+
+            <Callout.Text>
+              This section provides contextual <a>information </a> related to
+              the current view.
+            </Callout.Text>
+          </Callout.Root>
+        </div>
       </div>
     </div>
   );
