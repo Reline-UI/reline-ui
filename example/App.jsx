@@ -47,7 +47,10 @@ export default function App() {
 
       <div className="relative z-10 flex flex-col gap-16">
         {/* ---------------- Buttons ---------------- */}
-        <ComponentPreview title="Button" docs="/components/Buttons/docs.md">
+        <ComponentPreview
+          title="Button"
+          docs="/src/components/Buttons/Button/docs.md"
+        >
           <div className="flex flex-col gap-4 items-center">
             <div className="flex gap-4 flex-wrap justify-center">
               <Button>Primary</Button>
@@ -65,7 +68,7 @@ export default function App() {
         {/* ---------------- Accordion ---------------- */}
         <ComponentPreview
           title="Accordion"
-          docs="/components/Accordion/docs.md"
+          docs="/src/components/Accordion/docs.md"
         >
           <div className="flex flex-col gap-4 items-center w-full">
             <Accordion className="max-w-xl w-full">
@@ -91,7 +94,7 @@ export default function App() {
         {/* ---------------- Glass Accordion ---------------- */}
         <ComponentPreview
           title="Glass Accordion"
-          docs="/components/GlassAccordion/docs.md"
+          docs="/src/components/GlassAccordion/docs.md"
         >
           <div className="flex flex-col gap-4 items-center w-full">
             <GlassAccordion className="max-w-xl w-full">
@@ -110,7 +113,7 @@ export default function App() {
         {/* ---------------- Alert Dialog ---------------- */}
         <ComponentPreview
           title="Alert Dialog"
-          docs="/components/AlertDialogue/docs.md"
+          docs="/src/components/AlertDialogue/docs.md"
         >
           <div className="flex flex-col gap-4 items-center">
             <AlertDialog>
@@ -138,9 +141,40 @@ export default function App() {
         </ComponentPreview>
 
         {/* ---------------- Callout ---------------- */}
-        <ComponentPreview title="Callout" docs="/components/Callout/docs.md">
+        <ComponentPreview
+          title="Callout"
+          docs="/src/components/Callout/docs.md"
+        >
           <div className="flex flex-col gap-4 items-center">
             <Callout.Root>
+              <Callout.Text>
+                This is a contextual callout used to highlight important
+                information.
+              </Callout.Text>
+            </Callout.Root>
+
+            <Callout.Root variant="info">
+              <Callout.Text>
+                This is a contextual callout used to highlight important
+                information.
+              </Callout.Text>
+            </Callout.Root>
+
+            <Callout.Root variant="destructive">
+              <Callout.Text>
+                This is a contextual callout used to highlight important
+                information.
+              </Callout.Text>
+            </Callout.Root>
+
+            <Callout.Root variant="warning">
+              <Callout.Text>
+                This is a contextual callout used to highlight important
+                information.
+              </Callout.Text>
+            </Callout.Root>
+
+            <Callout.Root variant="success">
               <Callout.Text>
                 This is a contextual callout used to highlight important
                 information.
@@ -150,7 +184,7 @@ export default function App() {
         </ComponentPreview>
 
         {/* ---------------- Tabs ---------------- */}
-        <ComponentPreview title="Tabs" docs="/components/Tabs/docs.md">
+        <ComponentPreview title="Tabs" docs="/src/components/Tabs/docs.md">
           <div className="flex flex-col gap-6 items-center w-full">
             <TabContext defaultValue="tab1">
               <TabList>
