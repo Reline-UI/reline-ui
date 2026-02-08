@@ -220,12 +220,7 @@ export default function App() {
             description={"Frontend developer"}
           />
 
-          {/* <MediaBlurCard
-            title="Blur Card"
-            subtitle="Media-first layout"
-            mediaType="image"
-            mediaSrc="https://images.pexels.com/photos/2078266/pexels-photo-2078266.jpeg"
-          /> */}
+         
         </ComponentPreview>
       </div>
     </main>
