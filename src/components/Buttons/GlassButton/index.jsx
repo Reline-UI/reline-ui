@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { cn } from "../../../utils/cn.js";
 
 export default function GlassButton({
   children = "Button",
@@ -13,7 +14,7 @@ export default function GlassButton({
     <motion.button
       whileTap={{ scale: 0.97 }}
       onClick={onClick}
-      className={`${baseStyle} ${className}`}
+      className={cn(`${baseStyle} ${className}`)}
     >
       {/* Texture/Blur Layer */}
       <div className="absolute backdrop-blur-[1.5px] bg-[rgba(255,255,255,0.01)] h-fit  w-fit" />

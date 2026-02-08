@@ -38,3 +38,5 @@ export { TabList } from "./components/Tabs/TabList.jsx";
 export { RelineThemeProvider } from "./components/Theme/RelineThemeProvider.jsx";
 export { ThemeSwitcher } from "./components/Theme/ThemeSwitcher.jsx";
 export { ThemeToggle } from "./components/Theme/ThemeToggle.jsx";
+export { MediaCard } from "./components/MediaCard/index.jsx";
+export { MediaBlurCard } from "./components/MediaGlassCard/index.jsx";

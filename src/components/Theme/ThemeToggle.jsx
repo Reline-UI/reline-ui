@@ -1,4 +1,5 @@
 import { useRelineTheme } from "./RelineThemeProvider";
+import { cn } from "../../utils/cn.js";
 
 export function ThemeToggle() {
   const { theme, setTheme } = useRelineTheme();
@@ -30,9 +31,7 @@ export function ThemeToggle() {
       />
 
       {/* Text */}
-      <span className="sr-only">
-        {isDark ? "Dark mode" : "Light mode"}
-      </span>
+      <span className="sr-only">{isDark ? "Dark mode" : "Light mode"}</span>
     </button>
   );
 }

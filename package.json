@@ -41,10 +41,12 @@
   ],
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.18",
+    "classnames": "^2.5.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.29.2",
     "lucide-react": "^0.563.0",
     "react-markdown": "^10.1.0",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "tailwind-merge": "^3.4.0"
   }
 }

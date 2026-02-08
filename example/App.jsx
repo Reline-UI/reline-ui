@@ -26,6 +26,8 @@ import {
   TabPanel,
   TabContext,
   ThemeToggle,
+  MediaCard,
+  MediaBlurCard,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
@@ -197,6 +199,33 @@ export default function App() {
               <TabPanel value="tab2">This is the content of Tab Two.</TabPanel>
             </TabContext>
           </div>
+        </ComponentPreview>
+
+        {/*------------------ Cards----------------*/}
+        <ComponentPreview
+          title="Media Card"
+          docs="/src/components/Tabs/docs.md"
+        >
+          <MediaCard
+            mediaType="video"
+            mediaSrc="https://videos.pexels.com/video-files/857195/857195-hd_1280_720_25fps.mp4"
+            avatar="https://images.pexels.com/photos/27603695/pexels-photo-27603695.jpeg"
+            title="Debajoyti Paul"
+            subtitle="@pauldebajoyti"
+            actions={
+              <a href="https://x.com/pauldebajoyti">
+                <Button className="rounded-full w-full">Follow</Button>
+              </a>
+            }
+            description={"Frontend developer"}
+          />
+
+          {/* <MediaBlurCard
+            title="Blur Card"
+            subtitle="Media-first layout"
+            mediaType="image"
+            mediaSrc="https://images.pexels.com/photos/2078266/pexels-photo-2078266.jpeg"
+          /> */}
         </ComponentPreview>
       </div>
     </main>

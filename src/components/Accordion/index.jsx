@@ -3,6 +3,7 @@
 import React, { createContext, useContext, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { cn } from "../../utils/cn.js";
 
 /* -------------------------------------------------
    Context
@@ -22,7 +23,7 @@ function useAccordion() {
    Accordion Root
 -------------------------------------------------- */
 
-export default function Accordion({ children, className = "" }) {
+export default function Accordion({ children, className }) {
   const [openId, setOpenId] = useState(null);
 
   const toggle = (id) => {
@@ -31,7 +32,9 @@ export default function Accordion({ children, className = "" }) {
 
   return (
     <AccordionContext.Provider value={{ openId, toggle }}>
-      <div className={`flex flex-col gap-4 ${className}`}>{children}</div>
+      <div className={cn("flex flex-col gap-4 w-full", className)}>
+        {children}
+      </div>
     </AccordionContext.Provider>
   );
 }
@@ -40,19 +43,21 @@ export default function Accordion({ children, className = "" }) {
    Accordion Item
 -------------------------------------------------- */
 
-export function AccordionItem({ id, children }) {
+export function AccordionItem({ id, children, className }) {
   return (
     <div
       data-id={id}
-      className="
+      className={cn(
+        `
         rounded-2xl
         border border-black/10 dark:border-white/10
         bg-[#FAFAFA] dark:bg-[#18181B]
         text-[#18181B] dark:text-[#FAFAFA]
         shadow-[0_10px_40px_-20px_rgba(0,0,0,0.25)]
-      "
+        `,
+        className,
+      )}
     >
-      {/* Shared width wrapper */}
       <div className="px-6 py-5">{children}</div>
     </div>
   );
@@ -62,31 +67,31 @@ export function AccordionItem({ id, children }) {
    Accordion Trigger
 -------------------------------------------------- */
 
-export function AccordionTrigger({ id, children }) {
+export function AccordionTrigger({ id, children, className }) {
   const { openId, toggle } = useAccordion();
   const isOpen = openId === id;
 
   return (
     <button
       onClick={() => toggle(id)}
-      className="
-      
-        
-        flex
-        items-center
-        justify-between
+      className={cn(
+        `
+        w-full
+        flex items-center justify-between
         text-left
-        text-lg
-        font-semibold
+        text-lg font-semibold
         focus:outline-none
-      "
+        transition-colors
+        `,
+        className,
+      )}
     >
       <span>{children}</span>
 
       {isOpen ? (
-        <ChevronUp className="h-5 w-5 shrink-0" />
+        <ChevronUp className="h-5 w-5 shrink-0 opacity-80" />
       ) : (
-        <ChevronDown className="h-5 w-5 shrink-0" />
+        <ChevronDown className="h-5 w-5 shrink-0 opacity-80" />
       )}
     </button>
   );
@@ -96,7 +101,7 @@ export function AccordionTrigger({ id, children }) {
    Accordion Content
 -------------------------------------------------- */
 
-export function AccordionContent({ id, children }) {
+export function AccordionContent({ id, children, className }) {
   const { openId } = useAccordion();
   const isOpen = openId === id;
 
@@ -113,7 +118,9 @@ export function AccordionContent({ id, children }) {
           }}
           className="overflow-hidden"
         >
-          <div className="pt-4 text-sm leading-relaxed opacity-90">
+          <div
+            className={cn("pt-4 text-sm leading-relaxed opacity-90", className)}
+          >
             {children}
           </div>
         </motion.div>
@@ -121,4 +128,3 @@ export function AccordionContent({ id, children }) {
     </AnimatePresence>
   );
 }
-
