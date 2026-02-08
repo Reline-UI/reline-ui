@@ -29,5 +29,12 @@ export {
   AlertDialogAction,
 } from "./components/AlertDialogue/index.jsx";
 
+export { Callout } from "./components/Callout/index.jsx";
 
-export { Callout } from "./components/Callout/index.jsx"
+export { Tab } from "./components/Tabs/Tab.jsx";
+export { TabContext } from "./components/Tabs/TabContext.jsx";
+export { TabPanel } from "./components/Tabs/TabPanel.jsx";
+export { TabList } from "./components/Tabs/TabList.jsx";
+export { RelineThemeProvider } from "./components/Theme/RelineThemeProvider.jsx";
+export { ThemeSwitcher } from "./components/Theme/ThemeSwitcher.jsx";
+export { ThemeToggle } from "./components/Theme/ThemeToggle.jsx";

@@ -1,131 +1,170 @@
+"use client";
+
 import {
+  Button,
+  GlassButton,
   Accordion,
-  AccordionContent,
   AccordionItem,
   AccordionTrigger,
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-  Button,
-  Callout,
+  AccordionContent,
   GlassAccordion,
-  GlassAccordionContent,
   GlassAccordionItem,
   GlassAccordionTrigger,
-  GlassButton,
+  GlassAccordionContent,
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogCancel,
+  AlertDialogAction,
+  Callout,
+  Tab,
+  TabList,
+  TabPanel,
+  TabContext,
+  ThemeToggle,
 } from "../src";
+
+import ComponentPreview from "../src/docs/ComponentPreview";
 
 export default function App() {
   return (
-    <div className="p-8 dark:bg-zinc-950 min-h-screen w-full dark:text-white ">
-      <h1 className="text-2xl font-bold mb-4">Reline UI — Example</h1>
-      <div className="flex flex-col gap-8 items-start">
-        <div className="flex flex-col gap-4">
-          <Button onClick={() => alert(" button clicked")}>Button </Button>
-          <GlassButton onClick={() => alert("Glass button clicked")}>
-            Button
-          </GlassButton>
-        </div>
-        {/* Accordion */}
-        <div className=" bg-transparent flex items-center justify-center p-6">
-          <Accordion className="w-full max-w-xl">
-            <AccordionItem id="accordion-1">
-              <AccordionTrigger id="accordion-1">Accordion 1</AccordionTrigger>
-              <AccordionContent id="accordion-1">
-                An accordion is a UI component that lets users expand or
-                collapse content sections. It helps reduce clutter while keeping
-                information easily accessible.
-              </AccordionContent>
-            </AccordionItem>
+    <main className="relative min-h-screen w-full p-8 pt-20 dark:bg-zinc-950 dark:text-white overflow-x-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 z-0 [background-size:20px_20px] [background-image:radial-gradient(#d4d4d4_1px,transparent_1px)] dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]" />
 
-            <AccordionItem id="accordion-2">
-              <AccordionTrigger id="accordion-2">Accordion 2</AccordionTrigger>
-              <AccordionContent id="accordion-2">
-                An accordion is a UI component that lets users expand or
-                collapse content sections. It helps reduce clutter while keeping
-                information easily accessible.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem id="accordion-3">
-              <AccordionTrigger id="accordion-3">Accordion3</AccordionTrigger>
-              <AccordionContent id="accordion-3">
-                An accordion is a UI component that lets users expand or
-                collapse content sections. It helps reduce clutter while keeping
-                information easily accessible.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
-        {/* glassAccordion */}
-        <div className="bg-transparent flex flex-col gap-3 items-center justify-center p-6">
-          <GlassAccordion className="max-w-xl mx-auto">
-            <GlassAccordionItem id="accordion-1">
-              <GlassAccordionTrigger id="accordion-1">
-                What is a Glass Accordion?
-              </GlassAccordionTrigger>
-
-              <GlassAccordionContent id="accordion-1">
-                A glass accordion is a UI component styled with blur, inner
-                shadows, and subtle motion to feel premium and tactile.
-              </GlassAccordionContent>
-            </GlassAccordionItem>
-          </GlassAccordion>
-
-          <GlassAccordion className="max-w-xl mx-auto">
-            <GlassAccordionItem id="accordion-1  ">
-              <GlassAccordionTrigger id="accordion-1">
-                What is a Glass Accordion?
-              </GlassAccordionTrigger>
-
-              <GlassAccordionContent id="accordion-1">
-                A glass accordion is a UI component styled with blur, inner
-                shadows, and subtle motion to feel premium and tactile.
-              </GlassAccordionContent>
-            </GlassAccordionItem>
-          </GlassAccordion>
-        </div>
-
-        {/* Alert Dialog */}
-        <AlertDialog>
-          <AlertDialogTrigger>
-            <Button>Show Dialog</Button>
-          </AlertDialogTrigger>
-
-          <AlertDialogContent>
-            <AlertDialogHeader>
-              <AlertDialogTitle>Wanna See the the dialog?</AlertDialogTitle>
-              <AlertDialogDescription>
-                well, here it is. Enjoy your dialog
-              </AlertDialogDescription>
-            </AlertDialogHeader>
-            <AlertDialogFooter>
-              <AlertDialogCancel>Cancel</AlertDialogCancel>
-              <AlertDialogAction onClick={() => alert("Deleted")}>
-                Delete
-              </AlertDialogAction>
-            </AlertDialogFooter>
-          </AlertDialogContent>
-        </AlertDialog>
-
-        {/* Call out */}
-        <div>
-          <Callout.Root>
-            <Callout.Icon>{/* Add icon here */}</Callout.Icon>
-
-            <Callout.Text>
-              This section provides contextual <a>information </a> related to
-              the current view.
-            </Callout.Text>
-          </Callout.Root>
+      <div className="fixed top-0 left-0 right-0 z-50 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-sxm shadow">
+        <div className="max-w-7xl mx-auto px-4 py-4">
+          <h1 className="text-3xl font-bold text-center flex items-center gap-10 justify-center">
+            Reline UI
+            <ThemeToggle />
+          </h1>
         </div>
       </div>
-    </div>
+
+      <div className="relative z-10 flex flex-col gap-16">
+        {/* ---------------- Buttons ---------------- */}
+        <ComponentPreview title="Button" docs="/components/Buttons/docs.md">
+          <div className="flex flex-col gap-4 items-center">
+            <div className="flex gap-4 flex-wrap justify-center">
+              <Button>Primary</Button>
+              <Button variant="secondary">Secondary</Button>
+              <Button variant="outline">Outline</Button>
+              <Button variant="danger">Danger</Button>
+              <Button variant="warning">Warning</Button>
+              <Button variant="success">Success</Button>
+            </div>
+
+            <GlassButton>Glass Button</GlassButton>
+          </div>
+        </ComponentPreview>
+
+        {/* ---------------- Accordion ---------------- */}
+        <ComponentPreview
+          title="Accordion"
+          docs="/components/Accordion/docs.md"
+        >
+          <div className="flex flex-col gap-4 items-center w-full">
+            <Accordion className="max-w-xl w-full">
+              <AccordionItem id="a1">
+                <AccordionTrigger id="a1">What is Reline?</AccordionTrigger>
+                <AccordionContent id="a1">
+                  Reline is an open-source React component library focused on
+                  modern UI patterns.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem id="a2">
+                <AccordionTrigger id="a2">Is it customizable?</AccordionTrigger>
+                <AccordionContent id="a2">
+                  Yes, all components are unstyled primitives enhanced with
+                  Tailwind.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </ComponentPreview>
+
+        {/* ---------------- Glass Accordion ---------------- */}
+        <ComponentPreview
+          title="Glass Accordion"
+          docs="/components/GlassAccordion/docs.md"
+        >
+          <div className="flex flex-col gap-4 items-center w-full">
+            <GlassAccordion className="max-w-xl w-full">
+              <GlassAccordionItem id="g1">
+                <GlassAccordionTrigger id="g1">
+                  What is Glass UI?
+                </GlassAccordionTrigger>
+                <GlassAccordionContent id="g1">
+                  Glass UI uses blur, translucency and depth for a premium feel.
+                </GlassAccordionContent>
+              </GlassAccordionItem>
+            </GlassAccordion>
+          </div>
+        </ComponentPreview>
+
+        {/* ---------------- Alert Dialog ---------------- */}
+        <ComponentPreview
+          title="Alert Dialog"
+          docs="/components/AlertDialogue/docs.md"
+        >
+          <div className="flex flex-col gap-4 items-center">
+            <AlertDialog>
+              <AlertDialogTrigger>
+                <Button>Open Dialog</Button>
+              </AlertDialogTrigger>
+
+              <AlertDialogContent>
+                <AlertDialogHeader>
+                  <AlertDialogTitle>Delete item?</AlertDialogTitle>
+                  <AlertDialogDescription>
+                    This action cannot be undone.
+                  </AlertDialogDescription>
+                </AlertDialogHeader>
+
+                <AlertDialogFooter>
+                  <AlertDialogCancel>Cancel</AlertDialogCancel>
+                  <AlertDialogAction onClick={() => alert("Deleted")}>
+                    Delete
+                  </AlertDialogAction>
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </div>
+        </ComponentPreview>
+
+        {/* ---------------- Callout ---------------- */}
+        <ComponentPreview title="Callout" docs="/components/Callout/docs.md">
+          <div className="flex flex-col gap-4 items-center">
+            <Callout.Root>
+              <Callout.Text>
+                This is a contextual callout used to highlight important
+                information.
+              </Callout.Text>
+            </Callout.Root>
+          </div>
+        </ComponentPreview>
+
+        {/* ---------------- Tabs ---------------- */}
+        <ComponentPreview title="Tabs" docs="/components/Tabs/docs.md">
+          <div className="flex flex-col gap-6 items-center w-full">
+            <TabContext defaultValue="tab1">
+              <TabList>
+                <Tab value="tab1">Tab One</Tab>
+                <Tab value="tab2">Tab Two</Tab>
+              </TabList>
+
+              <TabPanel value="tab1">This is the content of Tab One.</TabPanel>
+
+              <TabPanel value="tab2">This is the content of Tab Two.</TabPanel>
+            </TabContext>
+          </div>
+        </ComponentPreview>
+      </div>
+    </main>
   );
 }

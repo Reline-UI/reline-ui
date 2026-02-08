@@ -49,7 +49,7 @@ export function AccordionItem({ id, children }) {
         border border-black/10 dark:border-white/10
         bg-[#FAFAFA] dark:bg-[#18181B]
         text-[#18181B] dark:text-[#FAFAFA]
-        shadow-[0_20px_40px_-20px_rgba(0,0,0,0.25)]
+        shadow-[0_10px_40px_-20px_rgba(0,0,0,0.25)]
       "
     >
       {/* Shared width wrapper */}
@@ -70,7 +70,7 @@ export function AccordionTrigger({ id, children }) {
     <button
       onClick={() => toggle(id)}
       className="
-      min-w-lg
+      
         
         flex
         items-center
@@ -122,23 +122,3 @@ export function AccordionContent({ id, children }) {
   );
 }
 
-/* -------------------------------------------------
-   Example Usage
--------------------------------------------------- */
-
-// export default function AccordionDemo() {
-//   return (
-//     <div className="min-h-screen bg-transparent flex items-center justify-center p-6">
-//       <Accordion className="w-full max-w-xl">
-//         <AccordionItem id="accordion-1">
-//           <AccordionTrigger id="accordion-1">Accordion</AccordionTrigger>
-//           <AccordionContent id="accordion-1">
-//             An accordion is a UI component that lets users expand or collapse
-//             content sections. It helps reduce clutter while keeping information
-//             easily accessible.
-//           </AccordionContent>
-//         </AccordionItem>
-//       </Accordion>
-//     </div>
-//   );
-// }

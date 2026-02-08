@@ -78,7 +78,7 @@ export function GlassAccordionTrigger({ id, children }) {
     <button
       onClick={() => toggle(id)}
       className="
-      min-w-lg
+      
         w-full
         flex
         items-center
@@ -87,6 +87,7 @@ export function GlassAccordionTrigger({ id, children }) {
         text-lg
         font-semibold
         focus:outline-none
+        
       "
     >
       <span>{children}</span>

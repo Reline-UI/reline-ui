@@ -11,7 +11,7 @@ const CalloutContext = createContext(null)
 /* ---------------- Styles ---------------- */
 
 const baseStyle =
-  "relative flex gap-3 w-full border rounded-2xl px-4 py-3 text-sm leading-relaxed"
+  "relative flex gap-3 w-fit border rounded-2xl px-4 py-3 text-sm leading-relaxed"
 
 const variants = {
   default:
