@@ -347,14 +347,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 🐛 [Report Issues](https://github.com/Reline-UI/reline-ui/issues)
 - 💬 [Discussions](https://github.com/Reline-UI/reline-ui/discussions)
 
-## 🗺 Roadmap
-
-- [ ] Comprehensive component documentation site
-- [ ] Additional components (Modal, Drawer, Popover, etc.)
-- [ ] TypeScript support
-- [ ] Storybook integration
-- [ ] Component testing suite expansion
-
----
 
 **Made with ❤️ by the Reline UI team**
