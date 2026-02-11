@@ -11,31 +11,31 @@ export function Menu() {
     {
       title: "Home",
       image:
-        "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=80",
+        "https://images.pexels.com/photos/10839549/pexels-photo-10839549.jpeg",
     },
     {
       title: "About",
       image:
-        "https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&q=80",
+        "https://images.pexels.com/photos/35712028/pexels-photo-35712028.jpeg",
     },
     {
       title: "Products",
       image:
-        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80",
+        "https://images.pexels.com/photos/35965247/pexels-photo-35965247.jpeg",
     },
     {
       title: "Blog",
       image:
-        "https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&q=80",
+        "https://images.pexels.com/photos/35647124/pexels-photo-35647124.jpeg",
     },
     {
       title: "Contact",
       image:
-        "https://images.unsplash.com/photo-1492724441997-5dc865305da7?w=800&q=80",
+        "https://images.pexels.com/photos/28865273/pexels-photo-28865273.jpeg",
     },
   ];
 
-  /* ---------------- Variants ---------------- */
+  /* ---------------- Animation Variants ---------------- */
 
   const containerVariants = {
     hidden: {},
@@ -65,15 +65,16 @@ export function Menu() {
       {/* Navbar (Hidden When Open) */}
       {!open && (
         <nav
-          className="w-full flex justify-between items-center px-6 py-5 border-b
-          z-50
+          className="w-full flex justify-between items-center px-6 py-5 border-b z-50
           bg-[#FFFFFF] border-[#E4E4E7]
-          dark:bg-[#09090B] dark:border-[#27272A]"
+          dark:bg-[#09090B] dark:border-[#27272A] "
         >
-          <span className="flex items-center gap-1 text-2xl  tracking-tight text-[#09090B] dark:text-white">
-            
+          {/* Brand */}
+          <span className="text-2xl tracking-tight text-[#09090B] dark:text-white">
             Reline
           </span>
+
+          {/* Hamburger */}
           <button
             onClick={() => setOpen(true)}
             className="relative w-8 h-6 flex flex-col justify-between"
@@ -93,10 +94,9 @@ export function Menu() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 z-50
-            bg-[#FFFFFF] dark:bg-[#09090B]"
+            className="fixed inset-0 z-50 bg-[#FFFFFF] dark:bg-[#09090B] "
           >
-            {/* Close Button (Top Right) */}
+            {/* Close Button */}
             <button
               onClick={() => setOpen(false)}
               className="absolute top-6 right-6 w-8 h-8 flex items-center justify-center"
@@ -112,7 +112,7 @@ export function Menu() {
               </motion.div>
             </button>
 
-            <div className="w-full h-full flex flex-col md:flex-row">
+            <div className="w-full h-full flex flex-col md:flex-row ">
               {/* LEFT IMAGE PREVIEW (Desktop Only) */}
               <div
                 className="hidden md:flex w-1/2 items-center justify-center relative overflow-hidden border-r
@@ -137,7 +137,7 @@ export function Menu() {
                 initial="hidden"
                 animate="show"
                 exit="hidden"
-                className="flex flex-col items-center justify-center h-full w-full md:w-1/2
+                className="flex flex-col items-center justify-center  h-full w-full md:w-1/2
                 text-center space-y-8"
               >
                 {menuItems.map((item, index) => (
@@ -156,6 +156,42 @@ export function Menu() {
                 ))}
               </motion.ul>
             </div>
+
+            {/* Divider Line */}
+            <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-24 h-px bg-[#E4E4E7] dark:bg-[#27272A]" />
+
+            {/* Social Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="absolute bottom-8 w-full flex justify-center md:justify-end md:pr-16 gap-8 text-sm"
+            >
+              <a
+                href="https://x.com/pauldebajoyti"
+                className="text-[#71717A] dark:text-[#A1A1AA] hover:text-[#09090B] dark:hover:text-white transition transform hover:scale-105"
+              >
+                Twitter
+              </a>
+              <a
+                href="https://github.com/paulNovachrono"
+                className="text-[#71717A] dark:text-[#A1A1AA] hover:text-[#09090B] dark:hover:text-white transition transform hover:scale-105"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://discord.gg/sphcJGHd"
+                className="text-[#71717A] dark:text-[#A1A1AA] hover:text-[#09090B] dark:hover:text-white transition transform hover:scale-105"
+              >
+                Discord
+              </a>
+              <a
+                href="https://www.linkedin.com/in/paul-debajoyti/"
+                className="text-[#71717A] dark:text-[#A1A1AA] hover:text-[#09090B] dark:hover:text-white transition transform hover:scale-105"
+              >
+                LinkedIn
+              </a>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
