@@ -1,6 +1,6 @@
 {
   "name": "reline-ui",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Opensource UI library for React and Next js.",
   "main": "dist/reline-ui.cjs.js",
   "module": "dist/reline-ui.es.js",

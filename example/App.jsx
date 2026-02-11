@@ -28,6 +28,7 @@ import {
   ThemeToggle,
   MediaCard,
   MediaBlurCard,
+  TooltipAvatar,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
@@ -204,7 +205,7 @@ export default function App() {
         {/*------------------ Cards----------------*/}
         <ComponentPreview
           title="Media Card"
-          docs="/src/components/Tabs/docs.md"
+          docs="/src/components/MediaCard/docs.md"
         >
           <MediaCard
             mediaType="video"
@@ -219,8 +220,32 @@ export default function App() {
             }
             description={"Frontend developer"}
           />
+        </ComponentPreview>
+        {/* ---------Tooltip----------- */}
+        <ComponentPreview
+          title="Tooltips"
+          docs="/src/components/Tooltip/docs.md"
+        >
+          <div className="flex flex-wrap gap-0.5 p-10 justify-center items-center mt-5">
+            <a href="https://x.com/pauldebajoyti">
+              <TooltipAvatar
+                image="https://plus.unsplash.com/premium_photo-1658527200977-60838ec5e428?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                name="Debajoyti Paul"
+                designation="UI Engineer"
+              />
+            </a>
 
-         
+            <TooltipAvatar
+              image="https://images.unsplash.com/photo-1521296797187-726205347ca9?q=80&w=803&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              name="Mercédès Herrera"
+              designation="Product Maneger"
+            />
+            <TooltipAvatar
+              image="https://plus.unsplash.com/premium_photo-1664536392779-049ba8fde933?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              name="Edmond Dantès"
+              designation="Product Designer"
+            />
+          </div>
         </ComponentPreview>
       </div>
     </main>
