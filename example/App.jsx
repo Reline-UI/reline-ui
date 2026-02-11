@@ -29,6 +29,7 @@ import {
   MediaCard,
   MediaBlurCard,
   TooltipAvatar,
+  Menu,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
@@ -39,7 +40,7 @@ export default function App() {
       {/* Background */}
       <div className="absolute inset-0 z-0 [background-size:20px_20px] [background-image:radial-gradient(#d4d4d4_1px,transparent_1px)] dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]" />
 
-      <div className="fixed top-0 left-0 right-0 z-50 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-sxm shadow">
+      <div className="fixed top-0 left-0 z-20 right-0 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-sxm shadow">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <h1 className="text-3xl font-bold text-center flex items-center gap-10 justify-center">
             Reline UI
@@ -245,6 +246,15 @@ export default function App() {
               name="Edmond Dantès"
               designation="Product Designer"
             />
+          </div>
+        </ComponentPreview>
+
+        <ComponentPreview
+          docs="/src/components/NavigationMenu/docs.md"
+          title={"Menu"}
+        >
+          <div className="flex items-center justify-between relative z-50">
+            <Menu />
           </div>
         </ComponentPreview>
       </div>

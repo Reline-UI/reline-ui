@@ -41,3 +41,4 @@ export { ThemeToggle } from "./components/Theme/ThemeToggle.jsx";
 export { MediaCard } from "./components/MediaCard/index.jsx";
 export { MediaBlurCard } from "./components/MediaGlassCard/index.jsx";
 export {TooltipAvatar} from "./components/Tooltip/TooltipAvatar.jsx"
+export {Menu} from "./components/NavigationMenu/FullSizeMenu.jsx"
