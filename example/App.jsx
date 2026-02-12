@@ -30,6 +30,7 @@ import {
   MediaBlurCard,
   TooltipAvatar,
   Menu,
+  GlassProfileCard,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
@@ -40,7 +41,7 @@ export default function App() {
       {/* Background */}
       <div className="absolute inset-0 z-0 [background-size:20px_20px] [background-image:radial-gradient(#d4d4d4_1px,transparent_1px)] dark:[background-image:radial-gradient(#404040_1px,transparent_1px)]" />
 
-      <div className="fixed top-0 left-0 z-20 right-0 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-sxm shadow">
+      <div className="fixed top-0 left-0 z-10 right-0 bg-white/60 dark:bg-zinc-900/60 backdrop-blur-sxm shadow">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <h1 className="text-3xl font-bold text-center flex items-center gap-10 justify-center">
             Reline UI
@@ -208,7 +209,8 @@ export default function App() {
           title="Media Card"
           docs="/src/components/MediaCard/docs.md"
         >
-          <MediaCard
+          <div className="flex justify-between items-center flex-wrap">
+            <MediaCard
             mediaType="video"
             mediaSrc="https://videos.pexels.com/video-files/857195/857195-hd_1280_720_25fps.mp4"
             avatar="https://images.pexels.com/photos/27603695/pexels-photo-27603695.jpeg"
@@ -221,6 +223,9 @@ export default function App() {
             }
             description={"Frontend developer"}
           />
+
+          <GlassProfileCard/>
+          </div>
         </ComponentPreview>
         {/* ---------Tooltip----------- */}
         <ComponentPreview

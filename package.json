@@ -1,9 +1,9 @@
 {
   "name": "reline-ui",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Opensource UI library for React and Next js.",
-  "main": "dist/reline-ui.cjs.js",
-  "module": "dist/reline-ui.es.js",
+  "main": "src/index.js",
+  "module": "src/index.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -13,10 +13,14 @@
     "type": "git",
     "url": "git+https://github.com/Reline-UI/reline-ui.git"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "library"
+  ],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/Reline-UI/reline-ui/issues"
   },
@@ -37,7 +41,10 @@
     "react-dom": "^19.2.4"
   },
   "files": [
-    "dist"
+    "src",
+    "README.md",
+    "LICENSE",
+    "tailwind.config.js"
   ],
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.18",
