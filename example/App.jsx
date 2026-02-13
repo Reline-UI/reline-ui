@@ -31,6 +31,10 @@ import {
   TooltipAvatar,
   Menu,
   GlassProfileCard,
+  RelineSlider,
+  RelineSliderPrev,
+  RelineSliderNext,
+  RelineCard,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
@@ -211,20 +215,20 @@ export default function App() {
         >
           <div className="flex justify-between items-center flex-wrap">
             <MediaCard
-            mediaType="video"
-            mediaSrc="https://videos.pexels.com/video-files/857195/857195-hd_1280_720_25fps.mp4"
-            avatar="https://images.pexels.com/photos/27603695/pexels-photo-27603695.jpeg"
-            title="Debajoyti Paul"
-            subtitle="@pauldebajoyti"
-            actions={
-              <a href="https://x.com/pauldebajoyti">
-                <Button className="rounded-full w-full">Follow</Button>
-              </a>
-            }
-            description={"Frontend developer"}
-          />
+              mediaType="video"
+              mediaSrc="https://videos.pexels.com/video-files/857195/857195-hd_1280_720_25fps.mp4"
+              avatar="https://images.pexels.com/photos/27603695/pexels-photo-27603695.jpeg"
+              title="Debajoyti Paul"
+              subtitle="@pauldebajoyti"
+              actions={
+                <a href="https://x.com/pauldebajoyti">
+                  <Button className="rounded-full w-full">Follow</Button>
+                </a>
+              }
+              description={"Frontend developer"}
+            />
 
-          <GlassProfileCard/>
+            <GlassProfileCard />
           </div>
         </ComponentPreview>
         {/* ---------Tooltip----------- */}
@@ -260,6 +264,40 @@ export default function App() {
         >
           <div className="flex items-center justify-between relative z-50">
             <Menu />
+          </div>
+        </ComponentPreview>
+
+        {/* ----------------Slider----------------- */}
+        <ComponentPreview
+          title={"Slider"}
+          docs={"src/components/Slider/docs.md"}
+        >
+          <div className=" py-24">
+            <RelineSlider>
+              <RelineCard
+                image="https://i.pinimg.com/736x/2b/61/60/2b6160ed0838b820be63025f45593acd.jpg"
+                subtitle="Latest Component"
+                title="Logo Carousel"
+                description="Headless logo carousel animation."
+              />
+
+              <RelineCard
+                image="https://i.pinimg.com/736x/d8/92/95/d8929536feb879675921ecfa39f00c95.jpg"
+                subtitle="Featured"
+                title="Modern Layout"
+                description="Smooth dark UI components powered by Framer Motion."
+              />
+
+              <RelineCard
+                image="https://i.pinimg.com/1200x/65/37/86/653786a94632faf88fa785a988f379f6.jpg"
+                subtitle="New Release"
+                title="Interactive Slider"
+                description="Ultra smooth animation with depth and focus."
+              />
+
+              <RelineSliderPrev />
+              <RelineSliderNext />
+            </RelineSlider>
           </div>
         </ComponentPreview>
       </div>

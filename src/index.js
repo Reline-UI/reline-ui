@@ -43,3 +43,5 @@ export { MediaBlurCard } from "./components/MediaGlassCard/index.jsx";
 export {TooltipAvatar} from "./components/Tooltip/TooltipAvatar.jsx"
 export {Menu} from "./components/NavigationMenu/FullSizeMenu.jsx"
 export {GlassProfileCard} from "./components/GlassProfileCard/index.jsx"
+export {RelineSlider, RelineSliderPrev, RelineSliderNext,RelineCard,
+} from "./components/Slider/index.jsx"
