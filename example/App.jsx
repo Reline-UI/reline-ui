@@ -35,6 +35,7 @@ import {
   RelineSliderPrev,
   RelineSliderNext,
   RelineCard,
+  SliderButton,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
@@ -71,6 +72,7 @@ export default function App() {
             </div>
 
             <GlassButton>Glass Button</GlassButton>
+            <SliderButton>Follow Me!</SliderButton>
           </div>
         </ComponentPreview>
 
