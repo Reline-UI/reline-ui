@@ -1,27 +1,59 @@
 {
   "name": "reline-ui",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Opensource UI library for React and Next js.",
-  "main": "index.js",
- "scripts": {
-  "test": "vitest"
-}
-,
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Reline-UI/reline-ui.git"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "ui",
+    "components",
+    "library"
+  ],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/Reline-UI/reline-ui/issues"
   },
   "homepage": "https://github.com/Reline-UI/reline-ui#readme",
   "devDependencies": {
+    "@tailwindcss/vite": "^4.1.18",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
+    "@vitejs/plugin-react": "^5.1.2",
+    "autoprefixer": "^10.4.23",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "vite": "^7.3.1",
     "vitest": "^4.0.18"
+  },
+  "peerDependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE",
+    "tailwind.config.js"
+  ],
+  "dependencies": {
+    "@tailwindcss/postcss": "^4.1.18",
+    "classnames": "^2.5.1",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.29.2",
+    "lucide-react": "^0.563.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "tailwind-merge": "^3.4.0"
   }
 }
