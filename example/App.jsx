@@ -36,11 +36,15 @@ import {
   RelineSliderNext,
   RelineCard,
   SliderButton,
+  RelineBentoGrid,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
 
 export default function App() {
+
+  // Bento card data
+   const bentoItems = [ { title: "25+ Components Shipping", description: "Buttons, Tabs, Carousels, Tooltips, Glass Cards — production ready.", large: true, }, { title: "Zinc Native Theming", description: "Designed with zinc-50 → zinc-950 system consistency.", }, { title: "Micro Interactions", description: "Subtle motion. System-driven animation.", }, { title: "Open Governance", description: "Community powered. Carefully curated evolution.", large: true, }]
   return (
     <main className="relative min-h-screen w-full p-8 pt-20 dark:bg-zinc-950 dark:text-white overflow-x-hidden">
       {/* Background */}
@@ -301,6 +305,10 @@ export default function App() {
               <RelineSliderNext />
             </RelineSlider>
           </div>
+        </ComponentPreview>
+
+        <ComponentPreview title={"BentoGrid"}>
+          <RelineBentoGrid items={bentoItems} />
         </ComponentPreview>
       </div>
     </main>
