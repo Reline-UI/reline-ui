@@ -37,14 +37,35 @@ import {
   RelineCard,
   SliderButton,
   RelineBentoGrid,
+  BlurStaggeredText,
+  StaggeredText,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
 
 export default function App() {
-
   // Bento card data
-   const bentoItems = [ { title: "25+ Components Shipping", description: "Buttons, Tabs, Carousels, Tooltips, Glass Cards — production ready.", large: true, }, { title: "Zinc Native Theming", description: "Designed with zinc-50 → zinc-950 system consistency.", }, { title: "Micro Interactions", description: "Subtle motion. System-driven animation.", }, { title: "Open Governance", description: "Community powered. Carefully curated evolution.", large: true, }]
+  const bentoItems = [
+    {
+      title: "25+ Components Shipping",
+      description:
+        "Buttons, Tabs, Carousels, Tooltips, Glass Cards — production ready.",
+      large: true,
+    },
+    {
+      title: "Zinc Native Theming",
+      description: "Designed with zinc-50 → zinc-950 system consistency.",
+    },
+    {
+      title: "Micro Interactions",
+      description: "Subtle motion. System-driven animation.",
+    },
+    {
+      title: "Open Governance",
+      description: "Community powered. Carefully curated evolution.",
+      large: true,
+    },
+  ];
   return (
     <main className="relative min-h-screen w-full p-8 pt-20 dark:bg-zinc-950 dark:text-white overflow-x-hidden">
       {/* Background */}
@@ -309,6 +330,28 @@ export default function App() {
 
         <ComponentPreview title={"BentoGrid"}>
           <RelineBentoGrid items={bentoItems} />
+        </ComponentPreview>
+        {/* ------------------Text Effects animations------------ */}
+        {/* -----------Staggered effect------------------ */}
+        <ComponentPreview title={"Staggered Text Aimation"}>
+          <StaggeredText
+            text="Reline makes motion feel premium."
+            className="text-4xl font-bold"
+            type="word"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }}
+          />
+        </ComponentPreview>
+
+        {/* -----------------Blur effect---------------------- */}
+        <ComponentPreview title={"Blur Text Effect"}>
+          <BlurStaggeredText
+            text="Build premium UI faster."
+            className="text-5xl font-bold tracking-tight"
+            type="word"
+            amount={1}
+            viewport={{ once: false}}
+          />
         </ComponentPreview>
       </div>
     </main>
