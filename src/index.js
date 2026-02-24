@@ -47,3 +47,5 @@ export {RelineSlider, RelineSliderPrev, RelineSliderNext,RelineCard,
 } from "./components/Slider/index.jsx"
 export {SliderButton} from "./components/Buttons/SliderButton/SliderButton.jsx"
 export {RelineBentoGrid} from "./components/BentoGrids/RelineBentoGrid.jsx"
+export {StaggeredText} from "./components/TextEffects/StaggeredText.jsx"
+export {BlurStaggeredText} from "./components/TextEffects/BlurStaggeredText.jsx"
