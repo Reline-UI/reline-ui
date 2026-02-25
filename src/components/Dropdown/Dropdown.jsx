@@ -5,9 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "../../utils/cn";
 "use client"
 
-import { useState, useRef } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import {cn} from "../../utils/cn"
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "../../utils/cn";
 
 /* ---------------------------------- */
 /* Dropdown Root                      */
@@ -74,18 +74,51 @@ export function Dropdown({ label, children, className }) {
   const timeoutRef = useRef(null)
 
   const handleMouseEnter = () => {
-    clearTimeout(timeoutRef.current)
-    setOpen(true)
-  }
+    if (isTouchDevice) return;
+    clearTimeout(timeoutRef.current);
+    setOpen(true);
+  };
 
   const handleMouseLeave = () => {
+    if (isTouchDevice) return;
     timeoutRef.current = setTimeout(() => {
-      setOpen(false)
-    }, 150)
-  }
+      setOpen(false);
+    }, 150);
+  };
+
+  /* ---------- Click (Mobile) ---------- */
+
+  const handleClick = () => {
+    if (isTouchDevice) {
+      setOpen((prev) => !prev);
+    }
+  };
+
+  /* ---------- Click Outside ---------- */
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    }
+
+    function handleEsc(e) {
+      if (e.key === "Escape") setOpen(false);
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEsc);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEsc);
+    };
+  }, []);
 
   return (
     <div
+      ref={containerRef}
       className={cn("relative inline-block text-left", className)}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -93,6 +126,7 @@ export function Dropdown({ label, children, className }) {
       {/* Trigger */}
       <button
         onClick={handleClick}
+        onFocus={() => setOpen(true)} //  opens on Tab
         onFocus={() => setOpen(true)} // ✅ opens on Tab
         className={cn(
           "px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300",
@@ -102,7 +136,8 @@ export function Dropdown({ label, children, className }) {
         className={cn(
           "px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300",
           "bg-neutral-100 text-neutral-800 hover:bg-neutral-200",
-          "dark:bg-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800"
+          "dark:bg-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800",
+          "focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600",
         )}
       >
         {label}
@@ -132,10 +167,6 @@ export function Dropdown({ label, children, className }) {
   )
 }
 
-/* ---------------------------------- */
-/* Dropdown Item                      */
-/* ---------------------------------- */
-
 export function DropdownItem({
   children,
   icon: Icon,
@@ -148,7 +179,7 @@ export function DropdownItem({
   color = "neutral", 
   className,
 }) {
-  const Component = href ? "a" : "button"
+  const Component = href ? "a" : "button";
 
   const colorStyles = {
     neutral: {
@@ -166,7 +197,7 @@ export function DropdownItem({
   const styles = colorStyles[color] || colorStyles.neutral;
   }
 
-  const styles = colorStyles[color] || colorStyles.neutral
+  const styles = colorStyles[color] || colorStyles.neutral;
 
   return (
     <Component
