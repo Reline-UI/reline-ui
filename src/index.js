@@ -56,4 +56,4 @@ export {Dropdown, DropdownItem} from "./components/Dropdown/Dropdown.jsx"
 export {Drawer} from "./components/Drawer/Drawer.jsx"
 export {AuthForm} from "./components/Form/index.jsx"
 export {MagicCursorArea} from "./components/CursorEffects/MagicCurserArea.jsx"
-
+export {InteractiveToast} from "./components/Toast/Toast.jsx"

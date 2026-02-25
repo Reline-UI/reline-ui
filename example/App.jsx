@@ -50,10 +50,11 @@ import {
   Drawer,
   AuthForm,
   MagicCursorArea,
+  InteractiveToast,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function App() {
   // Bento card data
@@ -82,6 +83,18 @@ export default function App() {
   // drawe's state
   const [open, setOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+
+  // For toast
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    if (show) {
+      function endShow() {
+        setTimeout(() => setShow(false), 15000);
+      }
+      endShow();
+    }
+  }, [show]);
+
   return (
     <main className="relative min-h-screen w-full  dark:bg-zinc-950 dark:text-white overflow-x-hidden">
       {/* Background */}
@@ -173,7 +186,7 @@ export default function App() {
                     <Button variant="warning">Warning</Button>
                     <Button variant="success">Success</Button>
                   </div>
-                {/* ------GlassButton------ */}
+                  {/* ------GlassButton------ */}
                   <GlassButton>Glass Button</GlassButton>
                   {/* Slider button */}
                   <SliderButton>Follow Me!</SliderButton>
@@ -609,6 +622,13 @@ export default function App() {
                     Move Your Mouse...
                   </h3>
                 </MagicCursorArea>
+              </ComponentPreview>
+
+              {/* ----------------------Toast------------------ */}
+              <ComponentPreview>
+                <Button onClick={() => setShow(true)}>Show Toast</Button>
+
+                {show && <InteractiveToast />}
               </ComponentPreview>
             </div>
           }
