@@ -48,6 +48,8 @@ export {RelineSlider, RelineSliderPrev, RelineSliderNext,RelineCard,
 export {SliderButton} from "./components/Buttons/SliderButton/SliderButton.jsx"
 export {RelineBentoGrid} from "./components/BentoGrids/RelineBentoGrid.jsx"
 export {StaggeredText} from "./components/TextEffects/StaggeredText.jsx"
+export {SlideText} from "./components/TextEffects/SlideText.jsx"
 export {BlurStaggeredText} from "./components/TextEffects/BlurStaggeredText.jsx"
 export {BentoTestimonials, ImageCounterCard, TestimonialCard} from "./components/Testimonials/BentoTestimonials.jsx"
 export {Loader} from "./components/Loader/Loader.jsx"
+export {Dropdown, DropdownItem} from "./components/Dropdown/Dropdown.jsx"
