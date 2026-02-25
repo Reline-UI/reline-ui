@@ -11,7 +11,7 @@ export function SlideText({
     <span
       className={cn(
         "relative inline-block overflow-hidden leading-[130%]",
-        "h-[1.30em]", // keeps height stable
+        "h-[1.25em]", // keeps height stable
         hover && "group",
         className,
       )}

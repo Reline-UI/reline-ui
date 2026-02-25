@@ -1,40 +1,83 @@
-"use client"
+"use client";
 
-import { useState, useRef } from "react"
-import { motion, AnimatePresence } from "framer-motion"
-import {cn} from "../../utils/cn"
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "../../utils/cn";
 
 /* ---------------------------------- */
 /* Dropdown Root                      */
 /* ---------------------------------- */
 
 export function Dropdown({ label, children, className }) {
-  const [open, setOpen] = useState(false)
-  const timeoutRef = useRef(null)
+  const [open, setOpen] = useState(false);
+  const timeoutRef = useRef(null);
+  const containerRef = useRef(null);
+
+  const isTouchDevice =
+    typeof window !== "undefined" &&
+    ("ontouchstart" in window || navigator.maxTouchPoints > 0);
+
+  /* ---------- Hover (Desktop Only) ---------- */
 
   const handleMouseEnter = () => {
-    clearTimeout(timeoutRef.current)
-    setOpen(true)
-  }
+    if (isTouchDevice) return;
+    clearTimeout(timeoutRef.current);
+    setOpen(true);
+  };
 
   const handleMouseLeave = () => {
+    if (isTouchDevice) return;
     timeoutRef.current = setTimeout(() => {
-      setOpen(false)
-    }, 150)
-  }
+      setOpen(false);
+    }, 150);
+  };
+
+  /* ---------- Click (Mobile) ---------- */
+
+  const handleClick = () => {
+    if (isTouchDevice) {
+      setOpen((prev) => !prev);
+    }
+  };
+
+  /* ---------- Click Outside ---------- */
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (containerRef.current && !containerRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    }
+
+    function handleEsc(e) {
+      if (e.key === "Escape") setOpen(false);
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEsc);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEsc);
+    };
+  }, []);
 
   return (
     <div
+      ref={containerRef}
       className={cn("relative inline-block text-left", className)}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       {/* Trigger */}
       <button
+        onClick={handleClick}
+        onFocus={() => setOpen(true)} // ✅ opens on Tab
         className={cn(
           "px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300",
           "bg-neutral-100 text-neutral-800 hover:bg-neutral-200",
-          "dark:bg-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800"
+          "dark:bg-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800",
+          "focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600",
         )}
       >
         {label}
@@ -51,7 +94,7 @@ export function Dropdown({ label, children, className }) {
             className={cn(
               "absolute mt-2 w-56 rounded-xl border p-2 shadow-xl backdrop-blur-xl",
               "bg-white border-neutral-200",
-              "dark:bg-neutral-900 dark:border-neutral-800"
+              "dark:bg-neutral-900 dark:border-neutral-800",
             )}
           >
             {children}
@@ -59,7 +102,7 @@ export function Dropdown({ label, children, className }) {
         )}
       </AnimatePresence>
     </div>
-  )
+  );
 }
 
 /* ---------------------------------- */
@@ -71,10 +114,10 @@ export function DropdownItem({
   icon: Icon,
   href,
   onClick,
-  color = "neutral", 
+  color = "neutral",
   className,
 }) {
-  const Component = href ? "a" : "button"
+  const Component = href ? "a" : "button";
 
   const colorStyles = {
     neutral: {
@@ -87,9 +130,9 @@ export function DropdownItem({
       icon: "text-red-500 dark:text-red-400",
       bg: "bg-red-50 dark:bg-red-900/30",
     },
-  }
+  };
 
-  const styles = colorStyles[color] || colorStyles.neutral
+  const styles = colorStyles[color] || colorStyles.neutral;
 
   return (
     <Component
@@ -99,7 +142,7 @@ export function DropdownItem({
         "group relative flex w-full items-center gap-3 px-3 py-2 rounded-lg overflow-hidden",
         "text-sm font-medium transition-colors duration-200",
         styles.text,
-        className
+        className,
       )}
     >
       {/* Subtle Background Hover Effect */}
@@ -107,7 +150,7 @@ export function DropdownItem({
         className={cn(
           "absolute inset-0 rounded-lg opacity-0 transition-opacity duration-300",
           styles.bg,
-          "group-hover:opacity-100"
+          "group-hover:opacity-100",
         )}
       />
 
@@ -116,7 +159,7 @@ export function DropdownItem({
         <Icon
           className={cn(
             "relative z-10 h-4 w-4 transition-colors duration-200",
-            styles.icon
+            styles.icon,
           )}
         />
       )}
@@ -131,5 +174,5 @@ export function DropdownItem({
         </span>
       </span>
     </Component>
-  )
+  );
 }
