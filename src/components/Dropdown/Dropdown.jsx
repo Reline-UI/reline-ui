@@ -114,10 +114,6 @@ export function DropdownItem({
   className,
 }) {
   const Component = href ? "a" : "button";
-  color = "neutral", 
-  className,
-}) {
-  const Component = href ? "a" : "button";
 
   const colorStyles = {
     neutral: {
