@@ -1,5 +1,8 @@
 const BlocksPage = () => {
-  return <div>BlocksPage</div>;
+  return (
+    <main className="relative">
+    </main>
+  );
 };
 
 export default BlocksPage;

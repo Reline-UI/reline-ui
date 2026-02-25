@@ -173,8 +173,9 @@ export default function App() {
                     <Button variant="warning">Warning</Button>
                     <Button variant="success">Success</Button>
                   </div>
-
+                {/* ------GlassButton------ */}
                   <GlassButton>Glass Button</GlassButton>
+                  {/* Slider button */}
                   <SliderButton>Follow Me!</SliderButton>
                 </div>
               </ComponentPreview>
