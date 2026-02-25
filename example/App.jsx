@@ -47,6 +47,7 @@ import {
   SlideText,
   Drawer,
   AuthForm,
+  MagicCursorArea,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
@@ -517,6 +518,14 @@ export default function App() {
         {/* ----------------------form-------------------------- */}
         <ComponentPreview title={"Form"} docs={"src/components/Form/docs.md"}>
           <AuthForm />
+        </ComponentPreview>
+
+        {/* --------------------------------Magic curser----------------------------- */}
+        {/* Only for this component */}
+        <ComponentPreview title={"Curser Effect"}>
+          <MagicCursorArea className="h-100 flex justify-center items-center">
+            <h3 className="text-neutral-600 dark:text-neutral-300 font-medium text-xl md:text-2xl lg:text-4xl">Move Your Mouse...</h3>
+          </MagicCursorArea>
         </ComponentPreview>
       </div>
     </main>

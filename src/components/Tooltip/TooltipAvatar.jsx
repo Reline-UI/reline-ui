@@ -28,8 +28,8 @@ export function TooltipAvatar({ image, name, designation, className }) {
         alt={defaultName}
         initial={{ borderRadius: 9999 }}
         animate={{
-          borderRadius: isHover ? 18 : 9999,
-          scale: isHover ? 1.08 : 1,
+          borderRadius: isHover ? 999: 9999,
+          scale: isHover ? 1.2 : 1,
         }}
         transition={{
           type: "spring",
