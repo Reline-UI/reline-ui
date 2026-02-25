@@ -40,6 +40,7 @@ import {
   BlurStaggeredText,
   StaggeredText,
   BentoTestimonials,
+  Loader,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
@@ -101,7 +102,6 @@ export default function App() {
             <SliderButton>Follow Me!</SliderButton>
           </div>
         </ComponentPreview>
-
         {/* ---------------- Accordion ---------------- */}
         <ComponentPreview
           title="Accordion"
@@ -127,7 +127,6 @@ export default function App() {
             </Accordion>
           </div>
         </ComponentPreview>
-
         {/* ---------------- Glass Accordion ---------------- */}
         <ComponentPreview
           title="Glass Accordion"
@@ -146,7 +145,6 @@ export default function App() {
             </GlassAccordion>
           </div>
         </ComponentPreview>
-
         {/* ---------------- Alert Dialog ---------------- */}
         <ComponentPreview
           title="Alert Dialog"
@@ -176,7 +174,6 @@ export default function App() {
             </AlertDialog>
           </div>
         </ComponentPreview>
-
         {/* ---------------- Callout ---------------- */}
         <ComponentPreview
           title="Callout"
@@ -219,7 +216,6 @@ export default function App() {
             </Callout.Root>
           </div>
         </ComponentPreview>
-
         {/* ---------------- Tabs ---------------- */}
         <ComponentPreview title="Tabs" docs="/src/components/Tabs/docs.md">
           <div className="flex flex-col gap-6 items-center w-full">
@@ -235,7 +231,6 @@ export default function App() {
             </TabContext>
           </div>
         </ComponentPreview>
-
         {/*------------------ Cards----------------*/}
         <ComponentPreview
           title="Media Card"
@@ -285,7 +280,6 @@ export default function App() {
             />
           </div>
         </ComponentPreview>
-
         <ComponentPreview
           docs="/src/components/NavigationMenu/docs.md"
           title={"Menu"}
@@ -294,7 +288,6 @@ export default function App() {
             <Menu />
           </div>
         </ComponentPreview>
-
         {/* ----------------Slider----------------- */}
         <ComponentPreview
           title={"Slider"}
@@ -328,7 +321,6 @@ export default function App() {
             </RelineSlider>
           </div>
         </ComponentPreview>
-
         <ComponentPreview
           title={"BentoGrid"}
           docs={"src/components/BentoGrid/docs.md"}
@@ -349,7 +341,6 @@ export default function App() {
             viewport={{ once: false, amount: 0.3 }}
           />
         </ComponentPreview>
-
         {/* -----------------Blur effect---------------------- */}
         <ComponentPreview title={"Blur Text Effect"}>
           <BlurStaggeredText
@@ -360,13 +351,22 @@ export default function App() {
             viewport={{ once: false }}
           />
         </ComponentPreview>
-
         {/* ----------------Bento testimonials------------------------ */}
         <ComponentPreview
           docs={"src/components/Testimonials/docs.md"}
           title={"Bento Testimonial"}
         >
           <BentoTestimonials />
+        </ComponentPreview>
+        {/* ------------------Loader-------------------- */}
+        <ComponentPreview title="Loader">
+          <div className="w-full h-full flex justify-center items-center">
+            <Loader
+              svgPath="M100,100 m-75,0 a75,75 0 1,0 150,0 a75,75 0 1,0 -150,0 M100,25 L100,175 M25,100 L175,100 M46.97,46.97 L153.03,153.03 M46.97,153.03 L153.03,46.97 M100,100 m-50,0 a50,50 0 1,0 100,0 a50,50 0 1,0 -100,0 M100,50 L120,80 L150,100 L120,120 L100,150 L80,120 L50,100 L80,80 Z"
+              size={120}
+              color="#6366f1"
+            />
+          </div>
         </ComponentPreview>
       </div>
     </main>
