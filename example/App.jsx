@@ -39,6 +39,7 @@ import {
   RelineBentoGrid,
   BlurStaggeredText,
   StaggeredText,
+  BentoTestimonials,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
@@ -328,12 +329,18 @@ export default function App() {
           </div>
         </ComponentPreview>
 
-        <ComponentPreview title={"BentoGrid"}>
+        <ComponentPreview
+          title={"BentoGrid"}
+          docs={"src/components/BentoGrid/docs.md"}
+        >
           <RelineBentoGrid items={bentoItems} />
         </ComponentPreview>
         {/* ------------------Text Effects animations------------ */}
         {/* -----------Staggered effect------------------ */}
-        <ComponentPreview title={"Staggered Text Aimation"}>
+        <ComponentPreview
+          docs={"src/components/TextEffects/docs.md"}
+          title={"Staggered Text Aimation"}
+        >
           <StaggeredText
             text="Reline makes motion feel premium."
             className="text-4xl font-bold"
@@ -350,8 +357,16 @@ export default function App() {
             className="text-5xl font-bold tracking-tight"
             type="word"
             amount={1}
-            viewport={{ once: false}}
+            viewport={{ once: false }}
           />
+        </ComponentPreview>
+
+        {/* ----------------Bento testimonials------------------------ */}
+        <ComponentPreview
+          docs={"src/components/Testimonials/docs.md"}
+          title={"Bento Testimonial"}
+        >
+          <BentoTestimonials />
         </ComponentPreview>
       </div>
     </main>
