@@ -1,5 +1,6 @@
 "use client";
 
+import { LogOut, Settings, User } from "lucide-react";
 import {
   Button,
   GlassButton,
@@ -41,6 +42,9 @@ import {
   StaggeredText,
   BentoTestimonials,
   Loader,
+  Dropdown,
+  DropdownItem,
+  SlideText,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
@@ -351,6 +355,14 @@ export default function App() {
             viewport={{ once: false }}
           />
         </ComponentPreview>
+        {/* -------------------------slide text-------------- */}
+        <ComponentPreview>
+          <div>
+            <h3 className="text-3xl font-medium cursor-pointer">
+              <SlideText text={"Hover me to see the magic"} />
+            </h3>
+          </div>
+        </ComponentPreview>
         {/* ----------------Bento testimonials------------------------ */}
         <ComponentPreview
           docs={"src/components/Testimonials/docs.md"}
@@ -366,6 +378,31 @@ export default function App() {
               size={120}
               color="#6366f1"
             />
+          </div>
+        </ComponentPreview>
+        {/* --------------dropdown---------------------- */}
+        <ComponentPreview
+          title={"Dropdown"}
+          docs="src/components/Dropdown/docs.md"
+        >
+          <div className="w-full h-full flex justify-center items-center">
+            <Dropdown label="Account">
+              <DropdownItem icon={User} href="/profile">
+                Profile
+              </DropdownItem>
+
+              <DropdownItem icon={Settings} href="/settings">
+                Settings
+              </DropdownItem>
+
+              <DropdownItem
+                icon={LogOut}
+                color="danger"
+                onClick={() => alert("Logged out")}
+              >
+                Logout
+              </DropdownItem>
+            </Dropdown>
           </div>
         </ComponentPreview>
       </div>
