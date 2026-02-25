@@ -50,10 +50,11 @@ import {
   Drawer,
   AuthForm,
   MagicCursorArea,
+  InteractiveToast,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function App() {
   // Bento card data
@@ -82,6 +83,18 @@ export default function App() {
   // drawe's state
   const [open, setOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState(false);
+
+  // For toast
+  const [show, setShow] = useState(false);
+  useEffect(() => {
+    if (show) {
+      function endShow() {
+        setTimeout(() => setShow(false), 15000);
+      }
+      endShow();
+    }
+  }, [show]);
+
   return (
     <main className="relative min-h-screen w-full  dark:bg-zinc-950 dark:text-white overflow-x-hidden">
       {/* Background */}
@@ -173,11 +186,9 @@ export default function App() {
                     <Button variant="warning">Warning</Button>
                     <Button variant="success">Success</Button>
                   </div>
-                {/* ------GlassButton------ */}
+                  {/* ------GlassButton------ */}
                   <GlassButton>Glass Button</GlassButton>
                   {/* Slider button */}
-
-                  <GlassButton>Glass Button</GlassButton>
                   <SliderButton>Follow Me!</SliderButton>
                 </div>
               </ComponentPreview>
@@ -612,120 +623,18 @@ export default function App() {
                   </h3>
                 </MagicCursorArea>
               </ComponentPreview>
+
+              {/* ----------------------Toast------------------ */}
+              <ComponentPreview>
+                <Button onClick={() => setShow(true)}>Show Toast</Button>
+
+                {show && <InteractiveToast />}
+              </ComponentPreview>
             </div>
           }
         />
         <Route path="/blocks" element={<BlocksPage />} />
       </Routes>
-        </ComponentPreview>
-        {/* -------------------------Drawer---------------------------- */}
-        <ComponentPreview
-          title={"Drawer"}
-          docs={"src/components/Drawer/docs.md"}
-        >
-          <div className="w-full h-full flex justify-center">
-            <button
-              onClick={() => setOpen(true)}
-              className="px-4 pt-2 pb-0.5 bg-neutral-900 text-white dark:bg-white dark:text-black rounded-lg"
-            >
-              <SlideText text={"Open Drawer"} />
-            </button>
-
-            <Drawer
-              open={open}
-              onClose={() => setOpen(false)}
-              direction="right"
-            >
-              <div className="flex h-full flex-col">
-                {/* Header */}
-                <div className="p-6 border-b border-neutral-200 dark:border-neutral-800">
-                  <h2 className="text-lg font-semibold text-neutral-800 dark:text-neutral-200">
-                    Account Settings
-                  </h2>
-                  <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-400">
-                    Manage your profile preferences, notifications and security
-                    settings.
-                  </p>
-                </div>
-
-                {/* Body */}
-                <div className="flex-1 overflow-y-auto p-6 space-y-6">
-                  {/* Profile Section */}
-                  <div>
-                    <h3 className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                      Profile
-                    </h3>
-                    <div className="mt-3 space-y-3">
-                      <button className="w-full text-left px-4 py-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors text-neutral-700 dark:text-neutral-300 text-sm">
-                        Edit Profile
-                      </button>
-                      <button className="w-full text-left px-4 py-2 rounded-lg bg-neutral-100 dark:bg-neutral-800 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition-colors text-neutral-700 dark:text-neutral-300 text-sm">
-                        Change Password
-                      </button>
-                    </div>
-                  </div>
-
-                  {/* Notifications */}
-                  <div>
-                    <h3 className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
-                      Notifications
-                    </h3>
-
-                    <div className="mt-3 space-y-4">
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-neutral-600 dark:text-neutral-400">
-                          Email Updates
-                        </span>
-                        <input
-                          type="checkbox"
-                          className="accent-neutral-900 dark:accent-white"
-                        />
-                      </div>
-
-                      <div className="flex items-center justify-between">
-                        <span className="text-sm text-neutral-600 dark:text-neutral-400">
-                          Push Notifications
-                        </span>
-                        <input
-                          type="checkbox"
-                          className="accent-neutral-900 dark:accent-white"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Danger Zone */}
-                  <div>
-                    <h3 className="text-sm font-medium text-red-600 dark:text-red-400">
-                      Danger Zone
-                    </h3>
-                    <button className="mt-3 w-full text-left px-4 py-2 rounded-lg bg-red-50 dark:bg-red-900/30 hover:bg-red-100 dark:hover:bg-red-900/50 transition-colors text-red-600 dark:text-red-400 text-sm">
-                      Delete Account
-                    </button>
-                  </div>
-                </div>
-
-                {/* Footer */}
-                <div className="p-6 border-t border-neutral-200 dark:border-neutral-800 flex gap-3">
-                  <button
-                    onClick={() => setOpen(false)}
-                    className="flex-1 px-4 py-2 rounded-lg bg-neutral-200 dark:bg-neutral-800 hover:bg-neutral-300 dark:hover:bg-neutral-700 transition-colors text-sm font-medium text-neutral-700 dark:text-neutral-300"
-                  >
-                    Cancel
-                  </button>
-                  <button className="flex-1 px-4 py-2 rounded-lg bg-neutral-900 dark:bg-white text-white dark:text-black hover:opacity-90 transition text-sm font-medium">
-                    Save Changes
-                  </button>
-                </div>
-              </div>
-            </Drawer>
-          </div>
-        </ComponentPreview>
-        {/* ----------------------form-------------------------- */}
-        <ComponentPreview title={"Form"} docs={"src/components/Form/docs.md"}>
-          <AuthForm />
-        </ComponentPreview>
-      </div>
     </main>
   );
 }
