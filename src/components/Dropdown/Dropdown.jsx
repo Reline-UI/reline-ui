@@ -3,6 +3,11 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "../../utils/cn";
+"use client"
+
+import { useState, useRef } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import {cn} from "../../utils/cn"
 
 /* ---------------------------------- */
 /* Dropdown Root                      */
@@ -65,6 +70,22 @@ export function Dropdown({ label, children, className }) {
   return (
     <div
       ref={containerRef}
+  const [open, setOpen] = useState(false)
+  const timeoutRef = useRef(null)
+
+  const handleMouseEnter = () => {
+    clearTimeout(timeoutRef.current)
+    setOpen(true)
+  }
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => {
+      setOpen(false)
+    }, 150)
+  }
+
+  return (
+    <div
       className={cn("relative inline-block text-left", className)}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -78,6 +99,10 @@ export function Dropdown({ label, children, className }) {
           "bg-neutral-100 text-neutral-800 hover:bg-neutral-200",
           "dark:bg-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800",
           "focus:outline-none focus:ring-2 focus:ring-neutral-400 dark:focus:ring-neutral-600",
+        className={cn(
+          "px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300",
+          "bg-neutral-100 text-neutral-800 hover:bg-neutral-200",
+          "dark:bg-neutral-900 dark:text-neutral-200 dark:hover:bg-neutral-800"
         )}
       >
         {label}
@@ -95,6 +120,7 @@ export function Dropdown({ label, children, className }) {
               "absolute mt-2 w-56 rounded-xl border p-2 shadow-xl backdrop-blur-xl",
               "bg-white border-neutral-200",
               "dark:bg-neutral-900 dark:border-neutral-800",
+              "dark:bg-neutral-900 dark:border-neutral-800"
             )}
           >
             {children}
@@ -103,6 +129,7 @@ export function Dropdown({ label, children, className }) {
       </AnimatePresence>
     </div>
   );
+  )
 }
 
 /* ---------------------------------- */
@@ -118,6 +145,10 @@ export function DropdownItem({
   className,
 }) {
   const Component = href ? "a" : "button";
+  color = "neutral", 
+  className,
+}) {
+  const Component = href ? "a" : "button"
 
   const colorStyles = {
     neutral: {
@@ -133,6 +164,9 @@ export function DropdownItem({
   };
 
   const styles = colorStyles[color] || colorStyles.neutral;
+  }
+
+  const styles = colorStyles[color] || colorStyles.neutral
 
   return (
     <Component
@@ -143,6 +177,7 @@ export function DropdownItem({
         "text-sm font-medium transition-colors duration-200",
         styles.text,
         className,
+        className
       )}
     >
       {/* Subtle Background Hover Effect */}
@@ -151,6 +186,7 @@ export function DropdownItem({
           "absolute inset-0 rounded-lg opacity-0 transition-opacity duration-300",
           styles.bg,
           "group-hover:opacity-100",
+          "group-hover:opacity-100"
         )}
       />
 
@@ -160,6 +196,7 @@ export function DropdownItem({
           className={cn(
             "relative z-10 h-4 w-4 transition-colors duration-200",
             styles.icon,
+            styles.icon
           )}
         />
       )}
@@ -175,4 +212,6 @@ export function DropdownItem({
       </span>
     </Component>
   );
+}
+  )
 }
