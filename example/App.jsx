@@ -51,6 +51,7 @@ import {
   AuthForm,
   MagicCursorArea,
   InteractiveToast,
+  ExpandablePanels,
 } from "../src";
 
 import ComponentPreview from "../src/docs/ComponentPreview";
@@ -630,9 +631,13 @@ export default function App() {
 
                 {show && <InteractiveToast />}
               </ComponentPreview>
+              <ComponentPreview>
+                <ExpandablePanels/>
+              </ComponentPreview>
             </div>
           }
-        />
+          
+          />
         <Route path="/blocks" element={<BlocksPage />} />
       </Routes>
     </main>
