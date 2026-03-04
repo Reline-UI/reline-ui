@@ -22,6 +22,86 @@ This file collects concise, copy-pasteable steps to create a Vite + React projec
 
 ---
 
+## 0 — Clone the Repository & Initial Setup
+
+### For Contributors
+
+1. **Fork the repository** (on GitHub)
+   - Go to https://github.com/Reline-UI/reline-ui
+   - Click the "Fork" button in the top-right corner
+   - This creates your own copy of the repository
+
+2. **Clone your forked repository**
+
+   ```bash
+   git clone https://github.com/YOUR-USERNAME/reline-ui.git
+   cd reline-ui
+   ```
+
+3. **Add upstream remote** (to keep in sync with original)
+
+   ```bash
+   git remote add upstream https://github.com/Reline-UI/reline-ui.git
+   ```
+
+4. **Verify remotes are set up**
+   ```bash
+   git remote -v
+   # You should see:
+   # origin    https://github.com/YOUR-USERNAME/reline-ui.git (fetch)
+   # origin    https://github.com/YOUR-USERNAME/reline-ui.git (push)
+   # upstream  https://github.com/Reline-UI/reline-ui.git (fetch)
+   # upstream  https://github.com/Reline-UI/reline-ui.git (push)
+   ```
+
+### For Development (Local Repository)
+
+If you have direct access or want to work on the main repository:
+
+```bash
+git clone https://github.com/Reline-UI/reline-ui.git
+cd reline-ui
+```
+
+### Install Dependencies
+
+```bash
+npm install
+# or
+pnpm install
+# or
+yarn install
+```
+
+### Start Development Server
+
+```bash
+npm run dev
+```
+
+The dev server will start (typically at `http://localhost:5173`). You can now view the example app and make changes to components in real-time.
+
+### Common Development Commands
+
+```bash
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Run tests
+npm run test
+
+# Preview production build locally
+npm run preview
+
+# Check for lint errors
+npm run lint
+```
+
+---
+
 ## 1 — Quick scaffold (Vite + React)
 
 Use Vite to create a new React app (JS template):
@@ -280,6 +360,3 @@ Make sure `name` in `package.json` is unique on npm and that `peerDependencies` 
 - Motion (animations): https://motion.dev/docs/react
 - Framer Motion (if preferred): https://www.framer.com/motion/
 
----
-
-If you want, I can now scaffold the example files (`vite.config.js`, `src/index.css`, `src/index.js`, `src/components/Button/index.jsx`) and update `package.json` scripts here—shall I proceed?
